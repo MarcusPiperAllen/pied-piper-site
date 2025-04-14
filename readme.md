@@ -1,140 +1,53 @@
-# accepts
 
-[![NPM Version][npm-version-image]][npm-url]
-[![NPM Downloads][npm-downloads-image]][npm-url]
-[![Node.js Version][node-version-image]][node-version-url]
-[![Build Status][github-actions-ci-image]][github-actions-ci-url]
-[![Test Coverage][coveralls-image]][coveralls-url]
+# Pied Piper Healthy Living
 
-Higher level content negotiation based on [negotiator](https://www.npmjs.com/package/negotiator).
-Extracted from [koa](https://www.npmjs.com/package/koa) for general use.
+Welcome to **Pied Piper Healthy Living**, a personal wellness and transformation website built by Marcus Piper. This site serves as a portfolio, blog, and resource hub designed to empower individuals on their journey to better health—physically, mentally, and spiritually.
 
-In addition to negotiator, it allows:
+## 🌐 Live Site
+Access the live site here: [marcuspiperallen.github.io/pied-piper-site](https://marcuspiperallen.github.io/pied-piper-site/)
 
-- Allows types as an array or arguments list, ie `(['text/html', 'application/json'])`
-  as well as `('text/html', 'application/json')`.
-- Allows type shorthands such as `json`.
-- Returns `false` when no types match
-- Treats non-existent headers as `*`
-
-## Installation
-
-This is a [Node.js](https://nodejs.org/en/) module available through the
-[npm registry](https://www.npmjs.com/). Installation is done using the
-[`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
-
-```sh
-$ npm install accepts
+## 📂 Project Structure
+```
+pied-piper-site/
+│
+├── index.html                  # Homepage
+├── about_me.html               # Marcus's personal journey & background
+├── contact.html                # Contact form + social media links
+├── gallery.html                # Meal prep, workouts, and media
+├── healthy_living_tips.html    # Health and fitness blog post
+├── rebuild_rebrand.html        # Life transformation & rebuilding story
+├── styles.css                  # Custom CSS styling
+├── script.js                   # Site-wide interactivity (subscribe/comments)
+├── images/                     # Photos and visual content
+├── videos/                     # Fitness activity videos
 ```
 
-## API
+## 🧠 Features
+- Responsive design for mobile and desktop
+- Interactive JavaScript for:
+  - Subscribe button toggle
+  - Visitor comment section
+- Email and social links
+- Personal storytelling through blog-style content
+- Organized by real-life categories for easy exploration
 
-```js
-var accepts = require('accepts')
-```
+## ⚙️ Tech Stack
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
+- GitHub Pages (deployment)
 
-### accepts(req)
+## 💬 Contact
+Connect with Marcus:
+- Email: marcuspiperallen@gmail.com
+- GitHub: [github.com/MarcusPiperAllen](https://github.com/MarcusPiperAllen)
 
-Create a new `Accepts` object for the given `req`.
+## 🚀 Future Plans
+- Add blog backend (optional with Firebase or Markdown CMS)
+- Automate contact submissions using Zapier + OpenAI
+- Expand project gallery
+- Add visitor counter or analytics
 
-#### .charset(charsets)
+---
 
-Return the first accepted charset. If nothing in `charsets` is accepted,
-then `false` is returned.
-
-#### .charsets()
-
-Return the charsets that the request accepts, in the order of the client's
-preference (most preferred first).
-
-#### .encoding(encodings)
-
-Return the first accepted encoding. If nothing in `encodings` is accepted,
-then `false` is returned.
-
-#### .encodings()
-
-Return the encodings that the request accepts, in the order of the client's
-preference (most preferred first).
-
-#### .language(languages)
-
-Return the first accepted language. If nothing in `languages` is accepted,
-then `false` is returned.
-
-#### .languages()
-
-Return the languages that the request accepts, in the order of the client's
-preference (most preferred first).
-
-#### .type(types)
-
-Return the first accepted type (and it is returned as the same text as what
-appears in the `types` array). If nothing in `types` is accepted, then `false`
-is returned.
-
-The `types` array can contain full MIME types or file extensions. Any value
-that is not a full MIME types is passed to `require('mime-types').lookup`.
-
-#### .types()
-
-Return the types that the request accepts, in the order of the client's
-preference (most preferred first).
-
-## Examples
-
-### Simple type negotiation
-
-This simple example shows how to use `accepts` to return a different typed
-respond body based on what the client wants to accept. The server lists it's
-preferences in order and will get back the best match between the client and
-server.
-
-```js
-var accepts = require('accepts')
-var http = require('http')
-
-function app (req, res) {
-  var accept = accepts(req)
-
-  // the order of this list is significant; should be server preferred order
-  switch (accept.type(['json', 'html'])) {
-    case 'json':
-      res.setHeader('Content-Type', 'application/json')
-      res.write('{"hello":"world!"}')
-      break
-    case 'html':
-      res.setHeader('Content-Type', 'text/html')
-      res.write('<b>hello, world!</b>')
-      break
-    default:
-      // the fallback is text/plain, so no need to specify it above
-      res.setHeader('Content-Type', 'text/plain')
-      res.write('hello, world!')
-      break
-  }
-
-  res.end()
-}
-
-http.createServer(app).listen(3000)
-```
-
-You can test this out with the cURL program:
-```sh
-curl -I -H'Accept: text/html' http://localhost:3000/
-```
-
-## License
-
-[MIT](LICENSE)
-
-[coveralls-image]: https://badgen.net/coveralls/c/github/jshttp/accepts/master
-[coveralls-url]: https://coveralls.io/r/jshttp/accepts?branch=master
-[github-actions-ci-image]: https://badgen.net/github/checks/jshttp/accepts/master?label=ci
-[github-actions-ci-url]: https://github.com/jshttp/accepts/actions/workflows/ci.yml
-[node-version-image]: https://badgen.net/npm/node/accepts
-[node-version-url]: https://nodejs.org/en/download
-[npm-downloads-image]: https://badgen.net/npm/dm/accepts
-[npm-url]: https://npmjs.org/package/accepts
-[npm-version-image]: https://badgen.net/npm/v/accepts
+> “No matter where you are in life, there's always room for growth.” — Marcus Piper
