@@ -1,63 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Pied Piper Healthy Living</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your CSS file -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Pied Piper Healthy Living</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="healthy_living_tips.html">Healthy Living Tips</a></li>
-            <li><a href="rebuild_rebrand.html">Rebuild & Rebrand</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="about_me.html">About Me</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
 
-    <!-- Main Content -->
-    <section>
-        <h1>Contact Me: Let Us Connect</h1>
-        <p>If you have any questions, feedback, or if you would like to connect, I would love to hear from you! Feel free to reach out using the contact form below or get in touch through social media.</p>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="healthy_living_tips.html">Healthy Living Tips</a></li>
+      <li><a href="rebuild_rebrand.html">Rebuild & Rebrand</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about_me.html">About Me</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
 
-        <!-- Contact Form -->
-        <form action="contact_form.php" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br>
+  <!-- Main Content -->
+  <section>
+    <h1>Contact Me: Let’s Connect!</h1>
+    <p>Have a question, feedback, or want to collaborate? I'd love to hear from you. Drop your message below or reach out directly via email or social media.</p>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
+    <!-- Custom Comment Form -->
+    <h2>Leave a Comment</h2>
+    <form id="commentForm">
+      <label for="visitorName">Name:</label>
+      <input type="text" id="visitorName" name="visitorName" required />
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea><br>
+      <label for="visitorMessage">Message:</label>
+      <textarea id="visitorMessage" name="visitorMessage" rows="4" required></textarea>
 
-            <button type="submit">Send</button>
-        </form>
+      <button type="submit">Post Comment</button>
+    </form>
 
-        <h2>Email</h2>
-        <p>You can also reach me directly via email at:</p>
-        <ul>
-            <li><a href="mailto:marcuspiperallen@gmail.com">marcuspiperallen@gmail.com</a></li>
-        </ul>
+    <div id="lastCommentBox" class="comment-display">
+      <h3>Latest Visitor Comment:</h3>
+      <p id="commentOutput"><i>No messages yet. Be the first to leave one!</i></p>
+    </div>
 
-        <h2>Social Media Links</h2>
-        <p>Follow me on social media to stay updated with the latest content:</p>
-        <ul>
-            <li><a href="https://facebook.com/yourprofile" target="_blank">Facebook: Marcus Piper</a></li>
-        </ul>
-        <p><i>I am working on setting up these profiles between classes.</i></p>
-    </section>
+    <!-- Email Contact -->
+    <h2>Email</h2>
+    <p>Feel free to email me directly at:</p>
+    <ul>
+      <li><a href="mailto:marcuspiperallen@gmail.com">marcuspiperallen@gmail.com</a></li>
+    </ul>
 
-    <!-- Footer -->
-    <footer>
-        <p>Follow us on social media:</p>
-        <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a> |
-        <a href="https://facebook.com/yourprofile" target="_blank">Facebook</a> |
-        <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a>
-    </footer>
+    <!-- Social Media Links -->
+    <h2>Connect with Me</h2>
+    <ul>
+      <li><a href="https://facebook.com/yourprofile" target="_blank">Facebook: Marcus Piper</a></li>
+      <li><a href="https://github.com/MarcusPiperAllen" target="_blank">GitHub: MarcusPiperAllen</a></li>
+    </ul>
+    <p><i>I'm currently polishing my social profiles and GitHub projects between school and portfolio updates.</i></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Follow me:</p>
+    <p>
+      <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a> |
+      <a href="https://facebook.com/yourprofile" target="_blank">Facebook</a> |
+      <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a> |
+      <a href="https://github.com/MarcusPiperAllen" target="_blank">GitHub</a>
+    </p>
+    <p>&copy; 2024 Pied Piper Healthy Living</p>
+  </footer>
+
+  <!-- Comment Posting Script -->
+  <script>
+    document.getElementById("commentForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("visitorName").value.trim();
+      const message = document.getElementById("visitorMessage").value.trim();
+      if (name && message) {
+        document.getElementById("commentOutput").innerHTML = `<strong>${name}</strong>: ${message}`;
+        this.reset();
+      }
+    });
+  </script>
 </body>
 </html>
